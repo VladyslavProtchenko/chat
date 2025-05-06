@@ -12,8 +12,9 @@ const getChat = async (id: string) => {
   console.log('response fetch chat info: ', res)
   return res;
 }
-const Page = async ({ params }: {params: {id: string}}) => {
-  const id =  params.id
+type Props = { params: Promise<{ id: string }> }
+export default async function Page({ params }: Props) {
+  const { id } = await params
   const chat = await getChat(id);
 
   return (
@@ -26,5 +27,3 @@ const Page = async ({ params }: {params: {id: string}}) => {
     </div>
   );
 }
-
-export default Page;
