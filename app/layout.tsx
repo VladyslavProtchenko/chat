@@ -29,7 +29,8 @@ export default async function  RootLayout({
 }>) {
   const cookieStore = await cookies()
   const user = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/user-info`, {
-    headers: { cookie: cookieStore.toString(), },
+    credentials: 'include',
+    headers: { cookie: cookieStore.toString(),},
   }).then(res => res.ok ? res.json() : null);
 
   console.log('response fetch user info: ', user)
