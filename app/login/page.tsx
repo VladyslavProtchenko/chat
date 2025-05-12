@@ -30,8 +30,11 @@ export default function Login() {
         return;
       }
       if (res.ok) {
+        setName('')
+        console.log('must work redirect here')
         router.push('/');
       }
+      console.log('nothing to happens')
     } catch(e) {
       console.log('Login error: ', e)
     }
