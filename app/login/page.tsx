@@ -32,7 +32,7 @@ export default function Login() {
       if (res.ok) {
         setName('')
         console.log('must work redirect here')
-        router.push('/');
+        return router.push('/');
       }
       console.log('nothing to happens')
     } catch(e) {
